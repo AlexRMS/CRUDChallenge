@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+<div class="card pt-2 mt-5">
+  <div class="card-head">
+    <h3 class="card-title text-center">
+      Produtos
+    </h3>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-stripped table-bordered">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Estoque</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{ product.title }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.stock }}</td>
+          <td><a href="{{ path('product_show', {'id': product.id}) }}">Ver</a></td>
+          <td><a href="{{ path('product_edit', {'id': product.id}) }}">Editar</a></td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="6">Sem produtos cadastrados</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer">
+    <a href="{{ path('product_new') }}">Criar novo</a>
+  </div>
+</div>
+{% endblock %}

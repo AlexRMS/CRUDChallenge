@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+<div class="card pt-2 mt-5">
+  <div class="card-head">
+    <h3 class="card-title text-center">
+      Produto
+    </h3>
+  </div>
+
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Título</th>
+          <td>{{ product.title }}</td>
+        </tr>
+        <tr>
+          <th>Descrição</th>
+          <td>{{ product.description }}</td>
+        </tr>
+        <tr>
+          <th>Imagem</th>
+          <td>{{ product.image }}</td>
+        </tr>
+        <tr>
+          <th>Estoque</th>
+          <td>{{ product.stock }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-footer row no-gutters">
+    <a href="{{ path('product_index') }}" class="btn btn-secondary mr-auto">Voltar</a>
+    {{ include('product/_delete_form.html.twig') }}
+  </div>
+</div>
+{% endblock %}

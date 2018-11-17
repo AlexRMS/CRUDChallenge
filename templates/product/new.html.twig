@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Product{% endblock %}
+
+{% block body %}
+<div class="card pt-2 mt-5">
+  <div class="card-head">
+    <h3 class="card-title text-center">
+      Criar novo produto
+    </h3>
+  </div>
+
+  <div class="card-body">
+    {{ include('product/_form.html.twig') }}
+  </div>
+
+  <div class="card-footer">
+  	<a href="{{ path('product_index') }}">Voltar</a>
+  </div>
+</div>
+{% endblock %}
