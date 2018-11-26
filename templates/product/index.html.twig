@@ -15,7 +15,6 @@
       <thead>
         <tr>
           <th>Título</th>
-          <th>Descrição</th>
           <th>Estoque</th>
           <th></th>
           <th></th>
@@ -25,7 +24,6 @@
         {% for product in products %}
         <tr>
           <td>{{ product.title }}</td>
-          <td>{{ product.description }}</td>
           <td>{{ product.stock }}</td>
           <td><a href="{{ path('product_show', {'id': product.id}) }}">Ver</a></td>
           <td><a href="{{ path('product_edit', {'id': product.id}) }}">Editar</a></td>

@@ -1,5 +1,5 @@
 product_index:
-    path:     /product
+    path:     /
     controller: App\Controller\ProductController::index
     methods:    [GET]
 product_new:

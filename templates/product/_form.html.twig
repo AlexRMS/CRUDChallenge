@@ -9,6 +9,7 @@
 	<img height="100">
 </div>
 {{ form_row(form.stock) }}
+<input type="submit" class="btn btn-success" value="Enviar">
 {{ form_end(form) }}
 
 <script>
@@ -22,14 +23,8 @@
 			let url_image = $("#product_image").val();
 			let type = url_image.substr(-3);
 			if(type == "jpg" || type == "png" || type == "gif") {
-				if(getImageSizeInBytes(url_image) <= 5) {
-					$(".load_image img").attr("src", $("#product_image").val());
-					$(".load_image").show();
-				} else {
-					alert("Tamanho superior a 5MB!");
-					$(".load_image").hide();
-					$("#product_image").val("");
-				}
+				$(".load_image img").attr("src", $("#product_image").val());
+				$(".load_image").show();
 			} else {
 				alert("Formato de imagem inválido!");
 				$(".load_image").hide();
@@ -46,14 +41,4 @@
 
 		image.src = $("#product_image").val();
 	});
-
-	function getImageSizeInBytes(imgURL) {
-    var request = new XMLHttpRequest();
-    request.open("HEAD", imgURL, false);
-    request.send(null);
-    var headerText = request.getAllResponseHeaders();
-    var re = /Content\-Length\s*:\s*(\d+)/i;
-    re.exec(headerText);
-    return parseInt(RegExp.$1) / (1024 * 1024);
-	}
 </script>
